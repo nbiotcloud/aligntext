@@ -1,6 +1,6 @@
 # Contribute
 
-This project uses https://github.com/nbiotcloud/python-template {templateversion}
+This project uses https://github.com/nbiotcloud/python-template 1.1.0
 
 ## Testing
 
