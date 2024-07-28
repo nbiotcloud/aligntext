@@ -24,7 +24,7 @@
 
 [tool.poetry]
 name = "aligntext"
-version = "1.0.2"
+version = "1.0.3"
 description = "Text Align - Python Text Alignment"
 readme = "README.md"
 license = "MIT"
