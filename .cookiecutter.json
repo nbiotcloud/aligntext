@@ -1,0 +1,13 @@
+{
+    "cookiecutter": {
+    "_checkout": null,
+    "_output_dir": "/Users/iccode17/projects",
+    "_repo_dir": "python-template",
+    "_template": "python-template",
+    "name": "aligntext",
+    "snake_name": "aligntext",
+    "title": "Text Align - Python Text Alignment",
+    "user": "nbiotcloud",
+    "year": "2023"
+}
+}

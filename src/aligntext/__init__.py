@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# Copyright (c) 2023 nbiotcloud
+# Copyright (c) 2023-2025 nbiotcloud
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -24,6 +24,7 @@
 """
 Text Align - Python Text Alignment.
 """
+
 import types
 from itertools import zip_longest as _zip_longest
 
@@ -34,13 +35,17 @@ def align(
     r"""
     Align `rows` using separators `seps` and align to `alignments`.
 
+    Args:
+        rows: Rows to be aligned.
+
     Keyword Args:
         seps (list, tuple): separators (see :any:`set_separators()`).
         sepfirst (str): prefix for every row. Empty by default. (see :any:`set_separators()`).
         seplast (str): suffix for every row. Empty by default. (see :any:`set_separators()`).
         alignments (list, tuple): alignments (see :any:`set_alignments()`).
         rtrim (bool): Remove whitespaces at the end of the line.
-        strip_empty_cols (bool): Skip the column and the seperator of empty columns.
+        strip_empty_cols (bool): Skip the column and the separator of empty columns.
+        header: Header Row.
 
     >>> print(align([["a", "bb", "ccc"], ["zzz", "yyyy", "x"]], rtrim=True))
     a   bb   ccc
@@ -77,7 +82,7 @@ def align(
     if header:
         header = tuple(header)
         inst.add_row(header)
-        inst.add_row(("-" * max(len(cellrow) for cellrow in cell.split("\n")) for cell in header))
+        inst.add_row("-" * max(len(cellrow) for cellrow in cell.split("\n")) for cell in header)
     inst.add_rows(*rows)
     if seps is None:
         inst.set_separators(first=sepfirst, last=seplast)
@@ -92,13 +97,16 @@ def iter_align(*rows, seps=None, sepfirst=None, seplast=None, alignments=None, r
     r"""
     Iterate over aligned `rows` using separators `seps` and align to `alignments`.
 
+    Args:
+        rows: Rows to be aligned.
+
     Keyword Args:
         seps (list, tuple): separators (see :any:`set_separators()`).
         sepfirst (str): prefix for every row. Empty by default. (see :any:`set_separators()`).
         seplast (str): suffix for every row. Empty by default. (see :any:`set_separators()`).
         alignments (list, tuple): alignments (see :any:`set_alignments()`).
         rtrim (bool): Remove whitespaces at the end of the line.
-        strip_empty_cols (bool): Skip the column and the seperator of empty columns.
+        strip_empty_cols (bool): Skip the column and the separator of empty columns.
 
     >>> '\n'.join(iter_align([["a", "bb", "ccc"], ["zzz", "yyyy", "x"]]))
     'a   bb   ccc\nzzz yyyy x'
@@ -144,7 +152,7 @@ class Align:
 
         Keyword Arguments:
             rtrim (bool): Remove whitespaces at the end of the line.
-            strip_empty_cols (bool): Skip the column and the seperator of empty columns.
+            strip_empty_cols (bool): Skip the column and the separator of empty columns.
 
         Example:
         >>> al = Align()
@@ -175,7 +183,7 @@ class Align:
         'foo barcelona tschustify'
         '    None'
 
-        The `len()` function will retrun the current filling level.
+        The `len()` function will return the current filling level.
 
         >>> al.clear()
         >>> al.get()
@@ -522,5 +530,4 @@ def _iter_items(args):
         items = args[0]
     else:
         items = args
-    for item in items:
-        yield item
+    yield from items
