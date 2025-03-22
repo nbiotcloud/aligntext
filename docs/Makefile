@@ -26,5 +26,4 @@ quick-html: Makefile
 
 api:
 	sphinx-apidoc --output-dir api .. ../aligntext/cli ../docs ../tests $(wildcard ../*.py) $(APIOPTS)
-	rm api/aligntext.rst
 .PHONY: api

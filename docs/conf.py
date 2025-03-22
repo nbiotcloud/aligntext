@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# Copyright (c) 2023 nbiotcloud
+# Copyright (c) 2023-2025 nbiotcloud
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +22,9 @@
 # SOFTWARE.
 #
 
-# Configuration file for the Sphinx documentation builder.
+"""
+Configuration file for the Sphinx documentation builder.
+"""
 #
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
@@ -56,4 +58,4 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 html_theme = "sphinx_rtd_theme"
 # html_static_path = ["static"]
 
-intersphinx_mapping = {}
+# intersphinx_mapping = {}
