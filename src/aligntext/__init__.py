@@ -144,8 +144,6 @@ class Align:
     Align table data.
     """
 
-    # pylint: disable=too-many-instance-attributes
-
     def __init__(self, rtrim=False, strip_empty_cols=False):
         r"""
         Align table data.
